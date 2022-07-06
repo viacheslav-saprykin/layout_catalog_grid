@@ -1,3 +1,5 @@
+$product-card-width: 200px;
+
 html {
   font-family: Roboto, sans-serif;
 }
@@ -12,3 +14,22 @@ body {
 
 @import "_header.scss";
 @import "_catalog.scss";
+
+.catalog {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax($product-card-width, 1fr));
+  gap: 48px;
+}
+
+@media (min-width: 1024px) {
+  grid-template-columns: repeat(4, $product-card-width);
+}
+
+@media (min-width: 768px) {
+  grid-template-columns: repeat(3, $product-card-width);
+}
+
+@media (min-width: 488px) {
+  grid-template-columns: repeat(2, $product-card-width);
+}
